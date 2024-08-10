@@ -2,7 +2,7 @@
   <!-- using emit to send parent state of done if changed -->
   <div class="task-item">
     <div>
-      <input type="checkbox" :checked="props.task.done" @change="toggleDone">
+      <input type="checkbox" class="done-checkbox" :checked="props.task.done" @change="toggleDone">
     </div>
     
     <div @click="toggleUpdateForm">
@@ -14,7 +14,7 @@
     </div>    
     <div>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" @click="toggleStarred" v-if="!props.task.done">
-        <title>ionicons-v5-e</title>
+        <title>Add to starred</title>
         <path d="M480,208H308L256,48,204,208H32l140,96L118,464,256,364,394,464,340,304Z" :style="starredStyle" style="stroke-linejoin:round;stroke-width:32px"/>
       </svg>
     </div>
@@ -175,6 +175,18 @@ svg, input[type="checkbox"] {
   margin-bottom: 10px;
 }
 
+.done-checkbox {
+  appearance: none; /* Remove default styles */
+  background-color: #c7fae900; /* Default background color */
+  border: 1.5px solid var(--color-text);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.done-checkbox:checked {
+  appearance: auto;
+}
+
 p {
   margin: 0;
 }
@@ -200,7 +212,6 @@ label[for='task'] > a:hover {
 
 .due-date {
   font-size: 14px;
-  color:white;
 }
 
 .overdue {

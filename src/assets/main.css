@@ -98,15 +98,10 @@ button:hover {
   color: #07c010;
 }
 
-button:disabled,
-.disabled {
+button:disabled {
   color: #afafaf;
   cursor: not-allowed;
   opacity: 0.5;
-}
-
-.disabled:hover{
-  background: none;
 }
 
 .cancel-btn {

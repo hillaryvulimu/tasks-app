@@ -47,9 +47,9 @@
     </button>
     <div class="menu-content" v-if="menuOpen">
       <ul>
-        <li @click="toggleRenameList">Rename list</li>
-        <li @click="deleteList">Delete list</li>
-        <li @click="deleteCompletedTasks" :class="{ 'disabled': !props.list.tasks.find(task => task.done) }">Delete completed tasks</li>
+        <li class="menu-item" @click="toggleRenameList">Rename list</li>
+        <li class="menu-item" @click="deleteList">Delete list</li>
+        <li @click="deleteCompletedTasks" :class="props.list.tasks.find(task => task.done) ? 'menu-item' : 'disabled'">Delete completed tasks</li>
       </ul>
     </div>
   </div>
@@ -160,17 +160,11 @@ const deleteList = () => {
 
 // delete completed tasks
 const deleteCompletedTasks = () => {
-  if(completedList.value) {
+  if(props.list.tasks.find(task => task.done)) {
     emit('delete-completed-tasks')
     toggleMenu()
   }
 }
-
-
-
-
-
-
 
 
 // show new task form
@@ -273,14 +267,25 @@ hr {
   list-style: none;
 }
 
-.menu-content li {
+.menu-item,
+.disabled{
   padding: 0.5rem 1rem;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.menu-content li:hover {
+.menu-item:hover {
   background-color: #3b3b3b;
+}
+
+.disabled {
+  color: #afafaf;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.disabled:hover {
+  background: none;
 }
 
 #add-task-button {
