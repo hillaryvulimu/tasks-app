@@ -1,9 +1,9 @@
 <template>
   <div class="overlay">
     <form id="new_list_name" @submit.prevent="addListName" class="fullscreen-form">
-      <input type="text" ref="listNameInput" v-model="list_name" placeholder="Enter a list name" />
+      <input type="text" ref="listNameInput" v-model="list_name"  autocomplete="off" placeholder="Enter a list name" />
       <div class="buttons">
-        <button type="button" id="cancel-btn" @click="cancel">Cancel</button>
+        <button type="button" class="cancel-btn" @click="cancel">Cancel</button>
         <button type="submit" id="add-btn" :disabled="!list_name.length">Add</button>
       </div>
     </form>

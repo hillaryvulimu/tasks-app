@@ -3,7 +3,7 @@
     <form @submit.prevent="addTask" class="fullscreen-form">
       <div class="input-div">
         <label for="task">Task <span style="color:red;">*</span> </label>
-        <input type="text" id="task" v-model="form.task" required  />
+        <input type="text" id="task" v-model="form.task"  autocomplete="off" required  />
       </div>
       
       <div class="input-div">
