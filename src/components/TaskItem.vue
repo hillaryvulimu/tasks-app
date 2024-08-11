@@ -13,7 +13,7 @@
       </p>  
     </div>    
     <div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" @click="toggleStarred" v-if="!props.task.done">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" @click="toggleStarred" v-if="!props.task.done">
         <title>Add to starred</title>
         <path d="M480,208H308L256,48,204,208H32l140,96L118,464,256,364,394,464,340,304Z" :style="starredStyle" style="stroke-linejoin:round;stroke-width:32px"/>
       </svg>
@@ -170,7 +170,7 @@ svg, input[type="checkbox"] {
 .task-item {
   display: grid;
   grid-template-columns: 30px 1fr 30px;
-  gap: 5px;
+  gap: 10px;
   align-items: start;
   margin-bottom: 10px;
 }
@@ -179,12 +179,16 @@ svg, input[type="checkbox"] {
   appearance: none; /* Remove default styles */
   background-color: #c7fae900; /* Default background color */
   border: 1.5px solid var(--color-text);
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .done-checkbox:checked {
   appearance: auto;
+  width: 16px;
+  height: 16px;
 }
 
 p {
